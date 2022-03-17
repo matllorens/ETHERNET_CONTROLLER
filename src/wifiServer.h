@@ -1,0 +1,2 @@
+void setupWifiServer();
+void wifiServerLoop();
