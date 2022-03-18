@@ -14,6 +14,7 @@
 #include "Globals.h"
 #include "buttonReset.h"
 #include "wifiServer.h"
+#include "resetTimer.h"
 
 /************** VARIABLES AND DECLARATIONS CORE 2 ***************************/
 
@@ -22,8 +23,10 @@ void setup()
   // Serial port for debugging purposes
   Serial.begin(115200);
   setupWifiServer();
+  setupWTD();
 }
 void loop()
 {
   wifiServerLoop();
+  WTDloop();
 }

@@ -1,0 +1,2 @@
+void WTDloop();
+void setupWTD();
