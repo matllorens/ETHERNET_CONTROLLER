@@ -28,6 +28,7 @@ bool initWiFi();
 String relayState(int numRelay);
 String processor(const String &var);
 void setupWifiServer();
+bool wifiConnected();
 
 // VARIABLES
 uint8_t resetToAp = 0;
@@ -458,4 +459,7 @@ void wifiServerLoop()
     }
     ESP.restart();
   }
+}
+bool wifiConnected(){
+  return WiFi.status() == WL_CONNECTED;
 }

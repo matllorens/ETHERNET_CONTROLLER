@@ -1,7 +1,8 @@
 #include <Arduino.h>
 #include "esp_system.h"
+#include "wifiServer.h"
 
-#define MINUTES 5 
+#define MINUTES 5
 
 hw_timer_t *timer = NULL;
 volatile int interruptCounter;
@@ -16,7 +17,7 @@ void setupWTD()
 {
     timer = timerBegin(0, 80, true);
     timerAttachInterrupt(timer, &onTimer, true);
-    timerAlarmWrite(timer, 1000000, true); //Every 1 second
+    timerAlarmWrite(timer, 1000000, true); // Every 1 second
     timerAlarmEnable(timer);
 }
 void WTDloop()
@@ -31,7 +32,7 @@ void WTDloop()
 
         Serial.print("An interrupt as occurred. Total number: ");
         Serial.println(totalInterruptCounter);
-        if (totalInterruptCounter >= MINUTES*60)
+        if (totalInterruptCounter >= MINUTES * 60 || (wifiConnected() == false))
         {
             ESP.restart();
         }
