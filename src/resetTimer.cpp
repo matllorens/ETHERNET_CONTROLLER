@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include "esp_system.h"
 #include "wifiServer.h"
+#include "Globals.h"
 
-#define MINUTES 5
 
 hw_timer_t *timer = NULL;
 volatile int interruptCounter;

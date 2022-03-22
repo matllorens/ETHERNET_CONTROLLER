@@ -1,23 +1,25 @@
 #include <Arduino.h>
 #include "Globals.h"
-const int buttonPin = 27;
-int counterTime = 0;
+
+int counterTime = 0; //variable que va sumando hasta llegar a TIMERBOOT
 
 void buttonReset(uint8_t *resetToAp);
+void setupButton();
 
 void setupButton()
 {
-    pinMode(buttonPin, INPUT);
+    pinMode(BUTTONPIN, INPUT);
 }
 void buttonReset(uint8_t *resetToAp)
 {
-    if (digitalRead(buttonPin))
+    if (digitalRead(BUTTONPIN))
     {
         counterTime = 0;
         delay(10);
-        while (digitalRead(buttonPin) && counterTime < TIMEREBOOT)
+        while (digitalRead(BUTTONPIN) && counterTime < TIMEREBOOT)
         {
             counterTime++;
+            delay(1000);
             Serial.println(counterTime);
         }
         if (counterTime >= TIMEREBOOT)

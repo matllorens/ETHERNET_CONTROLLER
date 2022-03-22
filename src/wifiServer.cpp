@@ -59,17 +59,15 @@ const char *passPath = "/pass.txt";
 const char *ipPath = "/ip.txt";
 const char *gatewayPath = "/gateway.txt";
 
+// Network variables
 IPAddress localIP;
-// IPAddress localIP(192, 168, 1, 200); // hardcoded
-//  Set your Gateway IP address
 IPAddress localGateway;
-// IPAddress localGateway(192, 168, 1, 1); //hardcoded
 IPAddress subnet(255, 255, 255, 0);
 
 // Timer variables and auxiliar
 unsigned long previousMillis = 0;
 
-const long interval = 10000; // interval to wait for Wi-Fi connection (milliseconds)
+//const  INTERVAL_WIFI_WIFI = 10000; 
 int state = 0;
 // state == 0 -> connected to network
 // state == 1 -> no files in SPIFFS (setting AP)
@@ -155,7 +153,7 @@ bool initWiFi()
   while (WiFi.status() != WL_CONNECTED)
   {
     currentMillis = millis();
-    if (currentMillis - previousMillis >= interval)
+    if (currentMillis - previousMillis >= INTERVAL_WIFI)
     {
       state = 2;
       Serial.println("Failed to connect.");
