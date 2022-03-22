@@ -34,7 +34,7 @@ bool wifiConnected();
 uint8_t resetToAp = 0;
 
 // Assign each GPIO to a relay
-int relayGPIOs[NUM_RELAYS] = {26,25 /*, 24, 27, 33*/};
+int relayGPIOs[NUM_RELAYS] = {26, 25 /*, 24, 27, 33*/};
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
 
@@ -460,6 +460,9 @@ void wifiServerLoop()
     ESP.restart();
   }
 }
-bool wifiConnected(){
-  return WiFi.status() == WL_CONNECTED;
+bool wifiConnected()
+{
+  if (state != 1)
+    return WiFi.status() == WL_CONNECTED;
+  else return true;
 }
