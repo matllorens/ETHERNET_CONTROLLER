@@ -20,6 +20,7 @@ p {
 
 body {
   margin: 0;
+  background-color: #111111;
 }
 
 .content {
@@ -101,6 +102,7 @@ input[type=text], input[type=number], select {
 
 label {
   font-size: 1.2rem;
+  color: white;
 }
 
 .value {
