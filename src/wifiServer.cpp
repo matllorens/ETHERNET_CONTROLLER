@@ -34,7 +34,7 @@ bool wifiConnected();
 uint8_t resetToAp = 0;
 
 // Assign each GPIO to a relay
-int relayGPIOs[NUM_RELAYS] = {26, 25 /*, 24, 27, 33*/};
+int relayGPIOs[NUM_RELAYS] = {PORT_RELAY_1, PORT_RELAY_2 /*, 24, 27, 33*/};
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
 
@@ -177,7 +177,7 @@ String relayState(int numRelay)
 {
   if (RELAY_NO)
   {
-    if (digitalRead(relayGPIOs[numRelay - 1]))
+    if (digitalRead(relayGPIOs[numRelay - 1])) //Optimizar esto es una cagada
     {
       return "";
     }
@@ -188,7 +188,7 @@ String relayState(int numRelay)
   }
   else
   {
-    if (digitalRead(relayGPIOs[numRelay - 1]))
+    if (digitalRead(relayGPIOs[numRelay - 1])) //Optimizar
     {
       return "checked";
     }
@@ -397,7 +397,7 @@ void setupWifiServer()
     pinMode(relayGPIOs[i - 1], OUTPUT);
     if (RELAY_NO)
     {
-      digitalWrite(relayGPIOs[i - 1], HIGH);
+      digitalWrite(relayGPIOs[i - 1], HIGH); //Optimizar
     }
     else
     {
