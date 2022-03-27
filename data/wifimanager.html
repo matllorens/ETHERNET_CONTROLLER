@@ -2,58 +2,59 @@
 <html>
 
 <head>
-  <title>ESP Wi-Fi Manager</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="data:,">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>ESP Wi-Fi Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 
 <body>
-  <div class="topnav">
-    <h1>ESP Wi-Fi Manager</h1>
-  </div>
+    <div class="topnav">
+        <h1>ESP Wi-Fi Manager</h1>
+    </div>
 
-  <form class="w3-container"  action="/" method="POST">
-    <p>
-      <label for="ssid">SSID:</label><br>
-      <input class="w3-input" type="text" id="ssid" name="ssid" placeholder="Enter SSID"><br>
+    <form class="w3-container" action="/" method="POST">
+        <p>
+            <label for="ssid">SSID:</label><br>
+            <input class="w3-input" type="text" id="ssid" name="ssid" placeholder="Ingrese SSID"><br>
 
-      <label for="pass">Password:</label><br>
-      <input class="w3-input" type="password" id="pwinput" name="pass" placeholder="Enter Password">
-      
-      <i class="fa fa-eye" id="showeye" type="checkbox" onclick="myFunction()" style="font-size:24px"></i><br>
+            <label for="pass">Contraseña:</label><br>
+            <input class="w3-input" type="password" id="pwinput" name="pass" placeholder="Ingrese Contraseña">
 
-      <label for="ip">IP:</label><br>
-      <input class="w3-input" type="text" id="ip" name="ip" value="192.168.1.200"><br>
+            <i class="fa fa-eye" id="showeye" type="checkbox" onclick="myFunction()" style="font-size:24px"></i><br>
 
-      <label for="gateway">Gateway Address:</label><br>
-      <input class="w3-input" type="text" id="gateway" name="gateway" value="192.168.1.1" placeholder="Enter Gateway"><br><br>
+            <label for="ip">IP:</label><br>
+            <input class="w3-input" type="text" id="ip" name="ip" value="192.168.1.200"><br>
 
-      <input type="submit" value="Enviar">
-    </p>
-  </form>
+            <label for="gateway">Gateway Address:</label><br>
+            <input class="w3-input" type="text" id="gateway" name="gateway" value="192.168.1.1" placeholder="Enter Gateway"><br><br>
+
+            <input type="submit" value="Enviar">
+        </p>
+    </form>
 </body>
 
 <script>
-  function myFunction() {
-    var x = document.getElementById("pwinput");
-    if (x.type === "password") {
-      x.type = "text";
-    } else {
-      x.type = "password";
+    function myFunction() {
+        var x = document.getElementById("pwinput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+        var y = document.getElementById("showeye");
+        if (y.className === "fa fa-eye") {
+            y.className = "fa fa-eye-slash";
+        } else {
+            y.className = "fa fa-eye";
+        }
     }
-    var y = document.getElementById("showeye");
-    if (y.className === "fa fa-eye") {
-      y.className = "fa fa-eye-slash";
-    } else {
-      y.className = "fa fa-eye";
-    }
-  }
-  </script>
+</script>
 
 </html>
 
@@ -63,4 +64,4 @@
 
 <body>
 
-  <noscript>Your browsing experience will be much better with JavaScript enabled!</noscript>
+    <noscript>Your browsing experience will be much better with JavaScript enabled!</noscript>
