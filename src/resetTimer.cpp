@@ -3,7 +3,6 @@
 #include "wifiServer.h"
 #include "Globals.h"
 
-
 hw_timer_t *timer = NULL;
 volatile int interruptCounter;
 int totalInterruptCounter;
@@ -29,9 +28,12 @@ void WTDloop()
         portEXIT_CRITICAL(&timerMux);
 
         totalInterruptCounter++;
+        if (totalInterruptCounter % 60 == 0)
+        {
+            Serial.print("An interrupt as occurred. Total number: ");
+            Serial.println(totalInterruptCounter/60);
+        }
 
-        Serial.print("An interrupt as occurred. Total number: ");
-        Serial.println(totalInterruptCounter);
         if (totalInterruptCounter >= MINUTES * 60 || (wifiConnected() == false))
         {
             ESP.restart();
