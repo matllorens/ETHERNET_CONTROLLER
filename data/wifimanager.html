@@ -24,6 +24,9 @@
       <label for="pass">Password:</label><br>
       <input class="w3-input" type="password" id="pwinput" name="pass" placeholder="Enter Password"><br>
 
+      <input type="checkbox" onclick="myFunction()">
+      <label for="show">Mostrar contraseña</label><br>
+
       <label for="ip">IP:</label><br>
       <input class="w3-input" type="text" id="ip" name="ip" value="192.168.1.200"><br>
 
@@ -33,9 +36,18 @@
       <input type="submit" value="Enviar">
     </p>
   </form>
-
-
 </body>
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("pwinput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+  </script>
 
 </html>
 
