@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 
@@ -22,10 +23,9 @@
       <input class="w3-input" type="text" id="ssid" name="ssid" placeholder="Enter SSID"><br>
 
       <label for="pass">Password:</label><br>
-      <input class="w3-input" type="password" id="pwinput" name="pass" placeholder="Enter Password"><br>
-
-      <input type="checkbox" onclick="myFunction()">
-      <label for="show">Mostrar contraseña</label><br>
+      <input class="w3-input" type="password" id="pwinput" name="pass" placeholder="Enter Password">
+      
+      <i class="fa fa-eye" id="showeye" type="checkbox" onclick="myFunction()" style="font-size:24px"></i><br>
 
       <label for="ip">IP:</label><br>
       <input class="w3-input" type="text" id="ip" name="ip" value="192.168.1.200"><br>
@@ -45,6 +45,12 @@
       x.type = "text";
     } else {
       x.type = "password";
+    }
+    var y = document.getElementById("showeye");
+    if (y.className === "fa fa-eye") {
+      y.className = "fa fa-eye-slash";
+    } else {
+      y.className = "fa fa-eye";
     }
   }
   </script>
