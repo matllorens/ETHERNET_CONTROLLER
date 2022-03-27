@@ -2,30 +2,32 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="data:,">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
-  <div class="topnav">
-    <h1>ESP Web Server</h1>
-  </div>
+    <div class="topnav">
+        <h1>ESP Web Server</h1>
+    </div>
 
-  %BUTTONPLACEHOLDER%
-  <script>function toggleCheckbox(element) {
-      var xhr = new XMLHttpRequest();
-      if (element.checked) { xhr.open("GET", "/update?relay=" + element.id + "&state=1", true); }
-      else { xhr.open("GET", "/update?relay=" + element.id + "&state=0", true); }
-      xhr.send();
-    }</script>
-  <br> <input type="checkbox" id="managecheck"
-    onclick='document.getElementById("manage").disabled=!document.getElementById("managecheck").checked;'
-    onUnSelect='document.getElementById("resettoap").disabled=!document.getElementById("check").checked;'>
-  <input type="button" id="manage" onclick="window.location.href='wifimanager.html';" value="Wifi Manager"
-    width="200px" disabled><br>
+    %BUTTONPLACEHOLDER%
+    <script>
+        function toggleCheckbox(element) {
+            var xhr = new XMLHttpRequest();
+            if (element.checked) {
+                xhr.open("GET", "/update?relay=" + element.id + "&state=1", true);
+            } else {
+                xhr.open("GET", "/update?relay=" + element.id + "&state=0", true);
+            }
+            xhr.send();
+        }
+    </script>
+    <br> <input type="checkbox" id="managecheck" onclick='document.getElementById("manage").disabled=!document.getElementById("managecheck").checked;' onUnSelect='document.getElementById("resettoap").disabled=!document.getElementById("check").checked;'>    <br><br><br>
+    <input type="button" id="manage" onclick="window.location.href='wifimanager.html';" value="Wifi Manager" width="200px" disabled><br>
 </body>
 
 </html>
