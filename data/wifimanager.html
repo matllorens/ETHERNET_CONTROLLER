@@ -11,24 +11,36 @@
 </head>
 
 
+
+
 <body>
+  <script>function myFunction() {
+      var x = document.getElementById("pwinput");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }</script>
   <div class="topnav">
     <h1>ESP Wi-Fi Manager</h1>
   </div>
 
-  <form class="w3-container"  action="/" method="POST">
+  <form class="w3-container" action="/" method="POST">
     <p>
       <label for="ssid">SSID:</label><br>
       <input class="w3-input" type="text" id="ssid" name="ssid" placeholder="Enter SSID"><br>
 
       <label for="pass">Password:</label><br>
       <input class="w3-input" type="text" id="pwinput" name="pass" placeholder="Enter Password"><br>
+      <input type="checkbox" onclick="myFunction()">Show Password
 
       <label for="ip">IP:</label><br>
       <input class="w3-input" type="text" id="ip" name="ip" value="192.168.1.200"><br>
 
       <label for="gateway">Gateway Address:</label><br>
-      <input class="w3-input" type="text" id="gateway" name="gateway" value="192.168.1.1" placeholder="Enter Gateway"><br><br>
+      <input class="w3-input" type="text" id="gateway" name="gateway" value="192.168.1.1"
+        placeholder="Enter Gateway"><br><br>
 
       <input type="submit" value="Submit">
     </p>
