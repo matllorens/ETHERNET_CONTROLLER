@@ -36,6 +36,7 @@ void WTDloop()
 
         if (totalInterruptCounter >= MINUTES * 60 || (wifiConnected() == false))
         {
+            digitalWrite(LEDPIN,LOW);
             ESP.restart();
         }
     }

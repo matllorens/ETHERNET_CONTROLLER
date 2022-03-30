@@ -34,7 +34,7 @@ bool wifiConnected();
 uint8_t resetToAp = 0;
 
 // Assign each GPIO to a relay
-int relayGPIOs[NUM_RELAYS] = {26, 25 /*, 24, 27, 33*/};
+int relayGPIOs[NUM_RELAYS] = {26, 27 /*, 24, 25, 33*/};
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
 
@@ -67,7 +67,7 @@ IPAddress subnet(255, 255, 255, 0);
 // Timer variables and auxiliar
 unsigned long previousMillis = 0;
 
-//const  INTERVAL_WIFI_WIFI = 10000; 
+// const  INTERVAL_WIFI_WIFI = 10000;
 int state = 0;
 // state == 0 -> connected to network
 // state == 1 -> no files in SPIFFS (setting AP)
@@ -157,6 +157,7 @@ bool initWiFi()
     {
       state = 2;
       Serial.println("Failed to connect.");
+      digitalWrite(LEDPIN, LOW);
       return false;
       // PRENDER LED ROJO
     }
@@ -165,6 +166,7 @@ bool initWiFi()
   {
     state = 0;
     Serial.println("Wifi connected");
+    digitalWrite(LEDPIN, HIGH);
     Serial.println(WiFi.localIP());
   }
   // Serial.println(WiFi.localIP());
@@ -450,11 +452,27 @@ void wifiServerLoop()
     if (resetToAp == 2)
     {
       Serial.println("RESETEANDO DISPOSITIVO A CERO");
+      digitalWrite(LEDPIN, LOW);
+      delay(100);
+      digitalWrite(LEDPIN, HIGH);
+      delay(100);
+      digitalWrite(LEDPIN, LOW);
+      delay(100);
+      digitalWrite(LEDPIN, HIGH);
+      delay(100);
+      digitalWrite(LEDPIN, LOW);
+      delay(100);
+      digitalWrite(LEDPIN, HIGH);
+      delay(100);
+      digitalWrite(LEDPIN, LOW);
+      delay(100);
+      digitalWrite(LEDPIN, HIGH);
       SPIFFS.remove("/ssid.txt");
       SPIFFS.remove("/pass.txt");
       // request->send(200, "text/html", "<h1>deleted wifi credentials ssid.txt and pass.txt<br>Done.<br>ESP restart,<br>connect to AP access point ESP WIFI MANAGER <br>to configure wifi settings again<br><a href=\"http://192.168.4.1\">http://192.168.4.1</a></h1>");
-      delay(5000);
+      delay(3000);
     }
+    digitalWrite(LEDPIN, LOW);
     ESP.restart();
   }
 }
@@ -462,5 +480,6 @@ bool wifiConnected()
 {
   if (state != 1)
     return WiFi.status() == WL_CONNECTED;
-  else return true;
+  else
+    return true;
 }

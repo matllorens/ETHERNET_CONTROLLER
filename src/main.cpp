@@ -24,6 +24,7 @@ void setup()
   Serial.begin(115200);
   setupWifiServer();
   setupWTD();
+  pinMode(LEDPIN, OUTPUT);
 }
 void loop()
 {
