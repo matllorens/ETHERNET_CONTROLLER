@@ -179,7 +179,7 @@ String relayState(int numRelay)
 {
   if (RELAY_NO)
   {
-    if (digitalRead(relayGPIOs[numRelay - 1]))
+    if (digitalRead(relayGPIOs[numRelay - 1])) //Optimizar esto es una cagada
     {
       return "";
     }
@@ -190,7 +190,7 @@ String relayState(int numRelay)
   }
   else
   {
-    if (digitalRead(relayGPIOs[numRelay - 1]))
+    if (digitalRead(relayGPIOs[numRelay - 1])) //Optimizar
     {
       return "checked";
     }
@@ -399,7 +399,7 @@ void setupWifiServer()
     pinMode(relayGPIOs[i - 1], OUTPUT);
     if (RELAY_NO)
     {
-      digitalWrite(relayGPIOs[i - 1], HIGH);
+      digitalWrite(relayGPIOs[i - 1], HIGH); //Optimizar
     }
     else
     {
